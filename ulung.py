@@ -1,7 +1,7 @@
 import subprocess
 import sys
 import os
-def run_bash_script(script_path, *args):
+def run_bash_script(/home/bangkai, bedul.sh):
     """
     Executes a Bash script and prints its output.
     """
@@ -11,7 +11,7 @@ def run_bash_script(script_path, *args):
         # This is generally less secure than passing a list of arguments,
         # but convenient for simple script execution.
         result = subprocess.run(
-            [script_path] + list(args),
+            [/home/bangkai] + list(args),
             capture_output=True,
             text=True,
             check=True
@@ -27,14 +27,14 @@ def run_bash_script(script_path, *args):
         print(f"Stderr: {e.stderr}")
         return e.returncode
     except FileNotFoundError:
-        print(f"Error: Bash script not found at {script_path}")
+        print(f"Error: Bash script not found at {/home/bangkai}")
         return 1
 
 def main():
     """
     Main entry point for the Python script.
     """
-    script_to_run = "./my_script.sh"
+    script_to_run = "./bedul.sh"
     # Pass any arguments received by the Python script to the Bash script
     exit_code = run_bash_script(script_to_run, *sys.argv[1:])
     sys.exit(exit_code)
